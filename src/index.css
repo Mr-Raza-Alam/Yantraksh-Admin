@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1e1e2e 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4c1d95;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d28d9;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(30, 30, 46, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button hover effect */
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 
+         text-white font-medium px-4 py-2 rounded-lg transition-all duration-300 
+         shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40;
+}
+
+.btn-secondary {
+  @apply bg-dark-200 hover:bg-dark-100 text-white font-medium px-4 py-2 rounded-lg 
+         transition-all duration-300 border border-primary-500/20 hover:border-primary-500/40;
+}
+
+.btn-danger {
+  @apply bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400
+         text-white font-medium px-4 py-2 rounded-lg transition-all duration-300
+         shadow-lg shadow-red-500/25 hover:shadow-red-500/40;
+}
+
+/* Card styles */
+.card {
+  @apply glass rounded-xl p-6 transition-all duration-300 hover:border-primary-500/40;
+}
+
+/* Input styles */
+.input {
+  @apply w-full bg-dark-300 border border-primary-500/20 rounded-lg px-4 py-3 
+         text-white placeholder-gray-500 focus:outline-none focus:border-primary-500 
+         transition-all duration-300;
+}
+
+/* Table styles */
+.table-container {
+  @apply overflow-x-auto rounded-xl glass;
+}
+
+.table {
+  @apply w-full text-left;
+}
+
+.table th {
+  @apply px-6 py-4 text-sm font-semibold text-primary-300 uppercase tracking-wider 
+         border-b border-primary-500/20;
+}
+
+.table td {
+  @apply px-6 py-4 text-sm text-gray-300 border-b border-primary-500/10;
+}
+
+.table tr:hover td {
+  @apply bg-primary-500/5;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  @apply fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50;
+}
+
+.modal-content {
+  @apply glass rounded-2xl p-8 max-w-md w-full mx-4 transform transition-all duration-300;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Stats card gradient borders */
+.stats-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa, #c4b5fd);
+}
